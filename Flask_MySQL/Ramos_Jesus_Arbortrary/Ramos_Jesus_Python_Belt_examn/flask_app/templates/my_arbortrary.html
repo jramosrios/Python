@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Arbortrary</title>
+</head>
+<body><div id="wrapper">
+    <nav>
+        <div id="titles">
+            <h1>Arbortrary</h1>
+            <p>A site to track randomly planted trees</p>
+        </div>
+        <div id="routes">
+            <a href="/user/account">My Trees</a>
+            <h2>Welcome, {{logged_user.first_name}}!</h2>
+            <button type="submit"><a href="/dashboard">Dashboard</a></button>
+            <button type="submit"><a href="/logout">logout</a></button>
+        </div>
+    </nav>
+    <h2>Manage my trees</h1>
+        <table>
+            <thead>
+                <th>Species</th>
+                <th>Date Planted</th>
+                <th>Actions</th>
+            </thead>
+            <tbody>
+                {% for each_tree in  logged_user.arbortrary%}
+                <tr>
+                    <td>{{each_tree.species}}</td>
+                    <td>{{each_tree.date_planted}}</td>
+                    <td><form action="/delete/{{ each_tree.id }}" method="post">
+                        <input type="submit" value="Delete"> 
+                        <a href="/edit/{{ each_tree.id }}">Edit</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

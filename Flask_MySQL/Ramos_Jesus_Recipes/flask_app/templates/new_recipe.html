@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Recipe</title>
+</head>
+<body>
+    <div id="wrappers">
+        <div id="new_recipes_left">
+            <h1>Add a new Recipe!</h1>
+            <p>Description must not be blank</p>
+        </div>
+        <div id="info">
+            <form action="/create_recipe" method="POST">
+                <div id="left">
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text">
+                    </div>
+                    <div>
+                        <label for="description">Description</label>
+                        <textarea name="description" cols="20" rows="5"></textarea>
+                    </div>
+                    <div>
+                        <label for="instruction">Instruction</label>
+                        <textarea name="instruction" cols="20" rows="5"></textarea>
+                    </div>
+                </div>
+                <div id="right">
+                    <div>
+                        <label for="date">Date Cooked/Madel:</label>
+                        <input type="date" name="date">
+                    </div>
+                    <div>
+                        <label for="time">Under 30 minutes?</label>
+                        <input type="radio" name="time">
+                    </div>
+                </div>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
